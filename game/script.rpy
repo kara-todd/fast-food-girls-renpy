@@ -25,7 +25,7 @@ screen phone_dial():
         xalign 0.5 ypos 100
         grid 3 2:
             textbutton "Pizza" action [Hide("phone_dial"), Jump("order_pizza")]
-            textbutton "Noodles" at btn_disabled
+            textbutton "Noodles" action [Hide("phone_dial"), Jump("order_pizza")]
             textbutton "Sushi" at btn_disabled
                 
             textbutton "Dessert" at btn_disabled
@@ -129,7 +129,7 @@ label order_pizza:
 
     label pizza_question2:
         $ girl = angela
-        girl "Angela. What about you, Mr. Meat Lover’s?"
+        girl "Angela. What about you, Meat Lover sensei?"
         me "[playername]"
 
     label pizza_beautiful:
