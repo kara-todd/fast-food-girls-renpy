@@ -6,7 +6,9 @@
 define ang = Character("Angela")
 define me = Character("[playername]")
 define anon = Character("???")
-define thiccPies = Character("Thicc Pies")
+define phatPies = Character("Phat Pies")
+define c = Character("Cindi")
+define haySushi = Character("Hayashi Sushi")
 define phone = anon
 define girl = anon
 
@@ -25,9 +27,9 @@ screen phone_dial():
         xalign 0.5 ypos 100
         grid 3 2:
             textbutton "Pizza" action [Hide("phone_dial"), Jump("order_pizza")]
-            textbutton "Noodles" action [Hide("phone_dial"), Jump("order_pizza")]
-            textbutton "Sushi" at btn_disabled
-                
+            textbutton "Sushi" action [Hide("phone_dial"), Jump("order_sushi")]
+            textbutton "BBQ" at btn_disabled
+
             textbutton "Dessert" at btn_disabled
             textbutton "Sandwhich" at btn_disabled
             textbutton "Grub Daddy" at btn_disabled
@@ -44,101 +46,63 @@ label start:
             hasName = False
             playername = "???"
 
-        address = renpy.input("Where do you live?")
-        address = address.strip()
-        hasAddress = True
+        blogname = renpy.input("What would you like to name your food review blog?")
+        blogname = blogname.strip()
+        hasblogName = True
 
-        if not address:
-            hasAddress = False
-            address = "Nowhere in paricular"
+        if not blogname:
+            hasblogName = False
+            blogname = "Yummy in my Tummy"
 
-    scene bg frontdoor
+label day1:
+    scene doorway
 
-    "Tuesday. Twelve days before the dinner party."
-    
-    me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge besides some wine from the last dinner party. I guess it’s actually not such a bad thing this new pizza place left me a takeout menu, then."
-    
+    "Monday. Five days before the dinner party."
+
+    me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge."
+    me "I guess it’s actually not such a bad thing a bunch of restaurants left me takeout menus, then."
+
     show screen phone_dial
 
-    me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge besides some wine from the last dinner party. I guess it’s actually not such a bad thing this new pizza place left me a takeout menu, then."
-    
+    me "What should I get for dinner tonight?"
+
 
 label order_pizza:
-    anon "Thicc Pies. What can I get you?"
-    $ phone = thiccPies
+    anon "Phat Pies. What do you want?"
+    $ phone = phatPies
 
-    me "Hello, can I get a medium meat lover’s pizza and breadsticks with both marinara and pizza sauce on the side."
-    phone "Sure. Can I get your address?"
-    me "Yeah, it’s [address]."
-    phone "Great. It’ll be there ASAP. Have a great night."
+    me "Hello, can I get the medium Mega Meats pizza and an order of breadsticks?"
+    phone "Yeah sure. Can I get your address?"
+    me "It’s 1111 2nd Street."
+    phone "Okay. It’ll be there ASAP."
 
     hide screen phone_dial
     $ phone = anon
 
-    "//A knock on the door.//"
+    "A knock on the door."
 
-    me "Must be my pizza. Finally."
+    me "That should be my pizza."
 
     # Click to answer door
 
-    show char angela neutral:
-        xalign 0.5
-        yalign 0.25
-    with dissolve
+    jump pizza1_start
 
-    girl "Hey, did you order a medium meat lover’s pizza and breadsticks?"
-    me "Yes, that was me."
-    girl "That’ll be $12."
+label order_sushi:
+    anon "Thank you for calling Hayashi Sushi. What can we do for you?"
+    $ phone = haySushi
 
-    menu:
-        "Thanks, here you go. You can keep the change.":
-            jump pizza_bigspender
+    me "Hello, can I get the Chef’s Deluxe Assorted Plate. I would also like seaweed salad on the side, please."
+    phone "Alright. Can I get your address?"
+    me "It’s 1111 2nd Street."
+    phone "Great. It’ll be there in twenty minutes. I hope that you have a delicious night."
 
-        "Thanks. Hey, can I ask you a strange question?":
-            jump pizza_question1
+    hide screen phone_dial
+    $ phone = anon
 
-        "Thanks, beautiful.":
-            jump pizza_beautiful
+    "A knock on the door."
 
-        "What’ll it be for your phone number?":
-            jump pizza_number1
+    me "I hope that's my sushi."
 
-    label pizza_bigspender:
-        girl "Look at you, big spender."
+    # Click to answer door
 
-        menu:
-            "I’m hoping to get in your good graces. Is it working yet?":
-                # jump pizza_unsure
-                jump pizza_goodbye1
-
-            "You deserve it for being such a hard worker.":
-                # jump pizza_hardworker
-                jump pizza_goodbye1
-
-            "You’re welcome.":
-                jump pizza_goodbye1
-
-            "I would be willing to spend more if you wanted to go out on a date with me later.":
-                # jump pizza_adate1
-                jump pizza_goodbye1
-
-    label pizza_question1:
-        girl "You’ve already asked me a strange question but sure. Can’t promise I’ll answer it, though."
-        me "You look really familiar. What’s your name?"
-        jump pizza_question2
-
-    label pizza_question2:
-        $ girl = angela
-        girl "Angela. What about you, Meat Lover sensei?"
-        me "[playername]"
-
-    label pizza_beautiful:
-        girl "Oh, you’re one of those guys."
-        me "One of what guys?"
-
-    label pizza_number1:
-        girl "My number is not on the menu."
-        me "I didn’t see it on there, but I thought it couldn’t hurt to ask."
-
-    label pizza_goodbye1:
-        girl "Alright, well, enjoy the pizza! I hope you have a good night!"
+    jump sushi1_start
