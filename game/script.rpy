@@ -106,3 +106,27 @@ label order_sushi:
     # Click to answer door
 
     jump sushi1_start
+
+#temporary
+label day2:
+    scene doorway
+
+    "Tuesday. Four days before the dinner party."
+
+    me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge."
+    me "I guess it’s actually not such a bad thing a bunch of restaurants left me takeout menus, then."
+
+    show screen phone_dial
+
+    me "What should I get for dinner tonight?"
+
+    hide screen phone_dial
+    $ phone = anon
+
+    "A knock on the door."
+
+    me "I hope that's my sushi."
+
+    # Click to answer door
+
+    jump sushi1_start

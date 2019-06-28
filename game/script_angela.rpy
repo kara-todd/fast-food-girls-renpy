@@ -9,6 +9,10 @@ define anon = Character("???")
 define phatPies = Character("Phat Pies")
 define phone = anon
 define girl = anon
+define gave_angname = False
+define gave_cindiname = False
+define gave_blyname = False
+define gave_domname = False
 
 label pizza1_start:
     show char angela neutral2:
@@ -50,7 +54,18 @@ label pizza1_start:
         menu:
             "It's [playername].":
                 $ gave_angname = True
-                jump pizza1_samename
+
+            "It's [cindiname]." if gave_cindiname:
+                $ gave_angname = True
+                jump pizza1_cindiang
+
+            "It's [domname]." if gave_domname:
+                $ gave_angname = True
+                jump pizza1_domang
+
+            "It's [blyname]." if gave_blyname:
+                $ gave_angname = True
+                jump pizza1_blyang
 
             "Give a new name":
                 $ gave_angname = True
@@ -60,6 +75,24 @@ label pizza1_samename:
     python:
         angname = playername.strip()
     me "It's [angname]."
+    jump pizza1_why
+
+label pizza1_cindiname:
+    python:
+        angname = cindiname.strip()
+    me "It's [cindiname]."
+    jump pizza1_why
+
+label pizza1_blyname:
+    python:
+        angname = blyname.strip()
+    me "It's [blyname]."
+    jump pizza1_why
+
+label pizza1_domname:
+    python:
+        angname = domname.strip()
+    me "It's [domname]."
     jump pizza1_why
 
 label pizza1_newname:
@@ -266,6 +299,44 @@ label pizza1_newname:
 
             "What is your blood type?":
                 jump pizza1_bloodtype
+
+    label pizza1_bloodtype:
+        me "Alright. An important one here - what's your blood type?"
+        ang "What? Why is that an important one?"
+        me "There are lots of things you can know based off of blood types. In Japanese culture, it's sometimes associated with personality and demeanor."
+        me "There's the blood type diet to know what foods settle best. And, if anything were to happen to you, it's important to know."
+        ang "Alright. That makes it a less creepy but still surprising. I'm type B. What about you?"
+        me "I'm AB."
+        ang "Cool. Well, like I said, that's it for now. Order another pizza and maybe we'll see each other again soon."
+
+        hide char angela neutral2
+        with dissolve
+
+        jump review_pizza1
+
+    label pizza1_color:
+        me "Let's go with the basics. What's your favorite color?"
+        ang "Red and black. What about you?"
+
+        python:
+            angcolor = renpy.input("What name would you like to give?")
+            angcolor = angcolor.strip()
+            hasangColor = True
+
+            if not angcolor:
+                hasangColor = False
+                angcolor = "blood red"
+        me "Mine is actually [angcolor]."
+        $ gave_angcolor = True
+
+        ang "Cool. Well, I guess you'll just have to order another pizza before Saturday to get to know me better because I need to go. But it's been fun."
+        ang "Good night, [angname]! I hope I see you again soon."
+        me "You will!"
+
+        hide char angela neutral2
+        with dissolve
+
+        jump review_pizza1
 
     label pizza1_mom:
         me "Are you ever scared while doing your job?"
@@ -496,3 +567,8 @@ label pizza1_newname:
         with dissolve
 
         jump review_pizza1
+
+#temporary
+    label review_pizza1:
+    "this is where the review portion would go. Go to next day."
+    jump day2
