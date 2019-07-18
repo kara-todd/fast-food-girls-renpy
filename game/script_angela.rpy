@@ -13,6 +13,8 @@ define gave_angname = False
 define gave_cindiname = False
 define gave_blyname = False
 define gave_domname = False
+define angDate = False
+define angdateAct = "nothing"
 
 label pizza1_start:
     show char angela neutral2:
@@ -319,7 +321,7 @@ label pizza1_newname:
         ang "Red and black. What about you?"
 
         python:
-            angcolor = renpy.input("What name would you like to give?")
+            angcolor = renpy.input("What is your favorite color?")
             angcolor = angcolor.strip()
             hasangColor = True
 
@@ -440,6 +442,9 @@ label pizza1_newname:
         ang "Yeah, we’ll meet here and drive together. That way I know for sure you won’t chicken out. I’ll be here at four."
         me "Great, I’ll see you then!"
         ang "Great!"
+
+        $ angDate = True
+        $ dateact = "skydiving"
 
         hide char angela neutral2
         with dissolve
@@ -569,6 +574,21 @@ label pizza1_newname:
         jump review_pizza1
 
 #temporary
-    label review_pizza1:
+label review_pizza1:
     "this is where the review portion would go. Go to next day."
-    jump day2
+    if angDate:
+        jump angDate
+
+    else:
+        jump day2
+
+label angDate:
+    me "It's almost four. She should be here soon."
+    "A knock on the door."
+
+    show char angela neutral2
+    with dissolve
+
+    ang "Hey are you ready for [angdateact]?"
+    me "Yep."
+    ang "Great! Let's go!"
