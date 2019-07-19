@@ -15,9 +15,10 @@ define gave_blyname = False
 define gave_domname = False
 define cindiDate = False
 define cindidateact = "nothing"
+define date = False
 
 label sushi1_start:
-    show char cindi neutral2:
+    show char cindi neutral1:
         xalign 0.5
         yalign 0.75
     with dissolve
@@ -26,6 +27,12 @@ label sushi1_start:
     me "Yeah, that was me."
     girl "Okay, great. That'll be $30."
     me "Here you go, keep the change."
+
+    show char cindi neutral2:
+        xalign 0.5
+        yalign 0.75
+    with dissolve
+
     girl "Wow, look at you big spender. Thanks!"
 
     menu:
@@ -59,7 +66,6 @@ label sushi1_start:
         girl "You too!"
 
         hide char cindi neutral2
-        with dissolve
 
         jump review_sushi1
 
@@ -76,10 +82,9 @@ label sushi1_start:
         me "Are you sure you have to go now? This is a lot more sushi than I expected. There's plenty to share."
         girl "I'm kind of on the clock and there are a lot of hungry people waiting on me. I'm sorry. But thanks for the offer. Maybe another time."
         me "How about tomorrow night?"
-        girl "Wait, are you serious? You're asking me out right now? You don't even know my name yet."
-        me "Yeah, I was serious. But you're right. I'm getting ahead of myself. I just thought you were cute and interesting. I didn't want to miss my chance."
-        girl "Well, that's pretty nice, I guess. I know sometimes it can be hard just to take the shot but I still gotta say no for now. Maybe we'll get to know each other more another time."
-        girl "Good night, Romeo. Enjoy that sushi."
+        girl "Are you asking me out right now? You don't even know my name yet."
+        me "Yeah, I'm sorry. I'm getting ahead of myself. I just thought you were cute and interesting and I didn't want to miss my chance."
+        girl "Well, that's pretty nice, I guess. But I still gotta say no for now. Maybe after we get to know each other a little more. Good night, Romeo."
 
         menu:
             "Wait, give me another chance.":
@@ -96,7 +101,7 @@ label sushi1_start:
         with dissolve
         jump review_sushi1
 
-    label sushi1_secondhance:
+    label sushi1_secondchance:
         me "Wait, give me another chance. Please."
         girl "Alright. You get one more chance."
         me "What's your name?"
@@ -160,9 +165,55 @@ label sushi1_start:
         me "It's [cindiname]."
         jump sushi1_reward
 
-    label sushi1_suits:
+    label sushi1_reward:
         cindi "Hmm, [cindiname]. Nice to meet you too. But you still asked me out before you asked for my name and I don’t know if I want to reward that kind of behavior."
 
+        menu:
+            "What if I invited you to a picnic and rollerskating?":
+                jump sushi1_rollerskates
+
+            "What if I invited you out to some drinks?":
+                jump sushi1_drinks2
+
+            "After you taste my food, you might change your mind.":
+                jump sushi1_chef
+
+            "What if I asked you a few more questions?":
+                jump sushi1_question2
+
+    label sushi1_drinks2:
+        me "What if I offered to take you to your favorite bar or club and buy the drinks while we get to know each other a bit more."
+        cindi "As much as I enjoy going to breweries. I'm not sure. It sounds like you might just want to get me drunk, not really get to know me."
+        me "I definitely said I wanted to get to know you a bit more."
+        cindi "Then why don't you get to know me now?"
+
+        menu:
+            "Tell me about yourself.":
+                jump sushi1_end4
+
+            "
+
+    label sushi1_rollerskates:
+        me "Alright. But what if I were to, say, invite you to a romantic but fun dinner in the park? There might even be rollerskates involved."
+        cindi "I'm not really a rollerskates and picnic kind of girl."
+        me "What kind of girl are you?"
+        cindi "If I had to put myself in a box, I guess I'd say I'm more of an art gallery and craft brewery connoisseur."
+        me "Well, I haven't yet made the picnic so I guess we could take our date elsewhere. I think I've heard of a show going on tomorrow night."
+        cindi "Strange. I hadn't heard of one."
+        me "All the more reason for you to join me then."
+        cindi "Hmm... I am intrigued. If you know of a show that I haven't heard about, then you must be pretty interested in art."
+        cindi "Alright. What time should we meet?"
+        me "How about here, tomorrow at 6pm. We can drive together."
+        cindi "Alright. It's a date."
+        me "Great! I will see you then."
+
+        $ dateCindi = True
+        $ date = True
+        $ datecindiact = "get some drinks"
+
+        hide char cindi neutral2
+        with dissolve
+        jump review_sushi1
 
     label sushi1_question1:
         me "Can I ask you a somewhat strange question?"
@@ -295,6 +346,7 @@ label sushi1_start:
         me "I'll see you then!"
 
         $ dateCindi = True
+        $ date = True
         $ datecindiact = "get some drinks"
 
         hide char cindi neutral2

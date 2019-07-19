@@ -15,6 +15,7 @@ define gave_blyname = False
 define gave_domname = False
 define angDate = False
 define angdateAct = "nothing"
+define date = False
 
 label pizza1_start:
     show char angela neutral2:
@@ -444,6 +445,7 @@ label pizza1_newname:
         ang "Great!"
 
         $ angDate = True
+        $ date = True
         $ dateact = "skydiving"
 
         hide char angela neutral2

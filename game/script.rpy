@@ -11,6 +11,8 @@ define c = Character("Cindi")
 define haySushi = Character("Hayashi Sushi")
 define phone = anon
 define girl = anon
+define cindiDead = False
+define angDead = False
 
 # State declration
 default hearts = 0
@@ -112,6 +114,17 @@ label day2:
     scene doorway
 
     "Tuesday. Four days before the dinner party."
+    if date == False:
+        jump day2_nodate
+
+    if angDate == True:
+        jump angdate
+
+    if dateCindi == True:
+        jump cindidate
+
+label day2_nodate:
+    scene doorway
 
     me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge."
     me "I guess it’s actually not such a bad thing a bunch of restaurants left me takeout menus, then."
@@ -120,13 +133,46 @@ label day2:
 
     me "What should I get for dinner tonight?"
 
-    hide screen phone_dial
-    $ phone = anon
+#temporary
+label angdate:
+    scene doorway
+
+    me "Angela should be here soon. I better make get ready."
 
     "A knock on the door."
 
-    me "I hope that's my sushi."
+    me "Sounds like she's here."
 
-    # Click to answer door
+    show char angela neutral2
 
-    jump sushi1_start
+    ang "Hey! How's it going? I'm excited to go [angdateAct]!"
+    me "Me too! Wanna come inside real quick? I wasn't quite ready."
+    ang "Okay."
+
+    $ date = False
+    $ angDate = False
+    $ angDead = True
+
+    jump day2
+
+#temporary
+label cindidate:
+    scene doorway
+
+    me "Cindi should be here soon. I better make get ready."
+
+    "A knock on the door."
+
+    me "Sounds like she's here."
+
+    show char cindi neutral2
+
+    cindi "Hey! How's it going? I'm excited to go [datecindiact]!"
+    me "Me too! Wanna come inside real quick? I wasn't quite ready."
+    cindi "Okay."
+
+    $ date = False
+    $ dateCindi = False
+    $ cindiDead = True
+
+    jump day2
