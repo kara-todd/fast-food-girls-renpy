@@ -80,19 +80,19 @@ label pizza1_samename:
     me "It's [angname]."
     jump pizza1_why
 
-label pizza1_cindiname:
+label pizza1_cindiang:
     python:
         angname = cindiname.strip()
     me "It's [cindiname]."
     jump pizza1_why
 
-label pizza1_blyname:
+label pizza1_blyang:
     python:
         angname = blyname.strip()
     me "It's [blyname]."
     jump pizza1_why
 
-label pizza1_domname:
+label pizza1_domang:
     python:
         angname = domname.strip()
     me "It's [domname]."

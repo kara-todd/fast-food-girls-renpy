@@ -175,11 +175,85 @@ label sushi1_start:
             "What if I invited you out to some drinks?":
                 jump sushi1_drinks2
 
-            "After you taste my food, you might change your mind.":
+            "What if I invited you over for dinner?":
                 jump sushi1_chef
 
             "What if I asked you a few more questions?":
                 jump sushi1_question2
+
+    label sushi1_question2:
+        me "What if I asked you a few more questions? Then we'd know each other a little more."
+        cindi "I need to get back to work soon but I can make time for one more question. So make it good."
+
+        menu:
+            "Tell me about yourself.":
+                jump sushi1_end4
+
+            "What do you do for fun?":
+                jump sushi1_fun
+
+            "What's your blood type?":
+                jump sushi1_bloodtype
+
+            "Did you grow up around here?":
+                jump sushi1_growup2
+
+    label sushi1_bloodtype:
+        me "Alright, here's an important question: what's your bloodtype?"
+        cindi "First off, that's a weird question for someone delivering your sushi. Second, why would I know that off the top of my head? And third, why do you think you get to ask that?"
+        me "Well, first, I am hoping that you will be someone that I go out on a date with soon and not just someone who delivered my sushi."
+        me "Second, it's important to know for medical emergencies. Third, it can be helpful for assessing your ideal diet and your personality. Both of which are important for a first date."
+        cindi "Well, I'm sorry but I don't know the answer to that."
+        me "That's a shame. You should ask your doctor the next time you go in for a physical."
+        cindi "Sure. Thanks for the tip. I hope you enjoy your sushi."
+
+        hide char cindi neutral2
+        with dissolve
+
+        jump review_sushi1
+
+    label sushi1_fun:
+        me "What do you like to do for fun when you're not out delivering sushi?"
+        cindi "I'm really boring. I pretty much just paint, go out for drinks with friends, and work."
+        me "That doesn't sound boring. Do you show your paintings or sell them anywhere?"
+        cindi "Yeah, I actually just showed a couple at an art show recently. It was at Post Script Gallery. They had a black and white show."
+        me "Do you have any more coming up? I'd love to come and see it."
+        cindi "I don't have anything too soon. I'm thinking of starting an art blog."
+        me "Oh, really? I have a food blog."
+        cindi "What's it called?"
+        me "It's [blogname]."
+        cindi "Sounds interesting. How long have you been blogging?"
+        me "Not long. But I get a quite a few views. If you'd like, I could help you set up your blog."
+        cindi "That would be great!"
+        me "You could come over tomorrow and I could help you set it up."
+        cindi "Okay! I'll bring a flash drive with some of my art. What time should I be here?"
+        me "How about around 5pm."
+        cindi "I'll see you then. Thank you so much!"
+        me "You're welcome!"
+
+        hide char cindi neutral2
+        with dissolve
+
+        $ date = True
+        $ cindiDate = True
+        $ cindiDateact = "set up my blog"
+
+        jump review_sushi1
+
+    label sushi1_growup2:
+        me "So did you grow up around here?"
+        cindi "Yeah. My uncle actually owns the restaurant."
+        me "Wow. A family business. Have you worked for them most of your life?"
+        cindi "Most of it, yeah."
+        me "Do your parents like that you're still working at the family business?"
+        cindi "Well, it's not really the family business. They don't work there."
+        cindi "I think they really hoped I'd get some high up corporate marketing job with my degree. But here I am, still at the restaurant. So yeah, there's a little disappointment."
+        cindi "From them and me, I guess."
+        cindi "Wow. This got a little more personal than I meant it to. I think I'm going to head out. Enjoy the sushi!"
+
+        hide char cindi neutral2
+        with dissolve
+        jump review_sushi1
 
     label sushi1_drinks2:
         me "What if I offered to take you to your favorite bar or club and buy the drinks while we get to know each other a bit more."
@@ -191,7 +265,43 @@ label sushi1_start:
             "Tell me about yourself.":
                 jump sushi1_end4
 
-            "
+            "What do you do for fun?":
+                jump sushi1_fun
+
+            "What's your blood type?":
+                jump sushi1_bloodtype
+
+            "Did you grow up around here?":
+                jump sushi1_growup2
+
+    label sushi1_end4:
+        me "Alright, what can you tell me about yourself?"
+        cindi "That is a really lazy question. You couldn't think of anything specific you'd like to know about me?"
+        me "I thought this way you could tell me what you found most interesting about yourself."
+        cindi "Alright. I'm an artist who just graduated college and now deliver sushi. And I really don't have the time for this. So good night, [cindiname]. Enjoy your sushi."
+
+        hide char cindi neutral2
+        with dissolve
+
+        jump review_sushi1
+
+    label sushi1_chef:
+        me "What if I invited you over for dinner? I could cook up a very romantic dinner, light some candles, turn on the mood music."
+        cindi "I don't make it a habit of going into stranger's houses and eating food that they prepared while I wasn't watching."
+        me "After you taste my food, you might change your mind. I can assure you, it's unlike anything you've tasted before."
+        cindi "Unlike anything I've tasted could be both good or bad."
+        me "Well obviously I'm biased but my friends say that they like it. In fact, I'm having a dinner party on Saturday night with all of them. I'd love to have you there."
+        cindi "You don't even know me."
+        me "I know you're nice because you're still talking to me. I know that you deliver sushi, because I'm holding it right now. And I can guess that you're a painter from the paint on your arm."
+        cindi "All very surface level things. But good catch on the painter thing."
+        me "That's why I'd like to go out with you, to learn more."
+        cindi "Maybe. I've gotta get back to work but if you think of something else you'd like to do together, just order some sushi and I'll be here. It's the secret summoning spell for me."
+        me "Alright. I will."
+
+        hide char cindi neutral2
+        with dissolve
+
+        jump review_sushi1
 
     label sushi1_rollerskates:
         me "Alright. But what if I were to, say, invite you to a romantic but fun dinner in the park? There might even be rollerskates involved."
@@ -207,9 +317,9 @@ label sushi1_start:
         cindi "Alright. It's a date."
         me "Great! I will see you then."
 
-        $ dateCindi = True
+        $ cindiDate = True
         $ date = True
-        $ datecindiact = "get some drinks"
+        $ cindidateact = "get some drinks"
 
         hide char cindi neutral2
         with dissolve
@@ -345,9 +455,9 @@ label sushi1_start:
         cindi "Yeah, I'm off tomorrow so that works perfectly. It's a plan!"
         me "I'll see you then!"
 
-        $ dateCindi = True
+        $ cindiDate = True
         $ date = True
-        $ datecindiact = "get some drinks"
+        $ cindiDateact = "get some drinks"
 
         hide char cindi neutral2
         with dissolve
