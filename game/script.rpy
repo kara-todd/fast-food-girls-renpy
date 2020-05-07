@@ -3,7 +3,7 @@
 # Characters
 define ang = Character("Angela", image="angela", window_right_padding=200)
 define cin = Character("Cindi")
-define mc = Character("")
+define mc = Character("boss")
 
 # Randos
 define anon = Character("???")

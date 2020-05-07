@@ -101,7 +101,7 @@ screen say(who, what):
     window:
         id "window"
 
-        if who is not None:
+        if who is not None and who != "boss":
 
             window:
                 id "namebox"
@@ -114,7 +114,7 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xalign 0.1 yalign 0.9
+        add SideImage() xalign .8 yalign .9
 
 
 ## Make the namebox available for styling through the Character object.
