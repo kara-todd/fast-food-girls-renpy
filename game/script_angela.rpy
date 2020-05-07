@@ -3,12 +3,12 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define ang = Character("Angela")
-define me = Character("[playername]")
-define anon = Character("???")
+# define ang = Character("Angela")
+# define me = Character("[]")
+# define anon = Character("???")
 define phatPies = Character("Phat Pies")
-define phone = anon
-define girl = anon
+# define phone = anon
+# define girl = anon
 define gave_angname = False
 define gave_cindiname = False
 define gave_blyname = False

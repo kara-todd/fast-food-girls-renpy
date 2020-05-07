@@ -1,23 +1,22 @@
 ﻿# The script of the game goes in this file.
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+# Characters
+define ang = Character("Angela", image="angela", window_right_padding=200)
+define cin = Character("Cindi")
+define mc = Character("")
 
-define ang = Character("Angela")
-define me = Character("[playername]")
+# Randos
 define anon = Character("???")
-define phatPies = Character("Phat Pies")
-define c = Character("Cindi")
-define haySushi = Character("Hayashi Sushi")
-define phone = anon
+define phone = Character("phone")
 define girl = anon
-define cindiDead = False
-define angDead = False
 
-# State declration
-default hearts = 0
-default hasAddress = False
-default hasName = False
+# Location Names
+define locPizza = Character("Phat Pies")
+define locSushi = Character("EZKaya")
+define locBBQ = Character("Butt Hutt")
+define locTaco = Character("Taco Bonita")
+
+# Game state declration
 
 transform btn_disabled:
     alpha 0.6
@@ -27,152 +26,20 @@ screen phone_dial():
     zorder 100
     frame:
         xalign 0.5 ypos 100
-        grid 3 2:
-            textbutton "Pizza" action [Hide("phone_dial"), Jump("order_pizza")]
-            textbutton "Sushi" action [Hide("phone_dial"), Jump("order_sushi")]
+        grid 2 2:
+            textbutton "Pizza" action [Hide("phone_dial"), Jump("angela_1")]
+            textbutton "Tacos" at btn_disabled
+            textbutton "Sushi" at btn_disabled
             textbutton "BBQ" at btn_disabled
 
-            textbutton "Dessert" at btn_disabled
-            textbutton "Sandwhich" at btn_disabled
-            textbutton "Grub Daddy" at btn_disabled
 
 # The game starts here.
 
 label start:
-    python:
-        playername = renpy.input("What is your name?")
-        playername = playername.strip()
-        hasName = True
-
-        if not playername:
-            hasName = False
-            playername = "???"
-
-        blogname = renpy.input("What would you like to name your food review blog?")
-        blogname = blogname.strip()
-        hasblogName = True
-
-        if not blogname:
-            hasblogName = False
-            blogname = "Yummy in my Tummy"
-
-label day1:
-    scene doorway
-
-    "Monday. Five days before the dinner party."
-
-    me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge."
-    me "I guess it’s actually not such a bad thing a bunch of restaurants left me takeout menus, then."
+    show bg apartment night
+    with dissolve
 
     show screen phone_dial
 
-    me "What should I get for dinner tonight?"
+    mc "What should I have for dinner tonight?"
 
-
-label order_pizza:
-    anon "Phat Pies. What do you want?"
-    $ phone = phatPies
-
-    me "Hello, can I get the medium Mega Meats pizza and an order of breadsticks?"
-    phone "Yeah sure. Can I get your address?"
-    me "It’s 1111 2nd Street."
-    phone "Okay. It’ll be there ASAP."
-
-    hide screen phone_dial
-    $ phone = anon
-
-    "A knock on the door."
-
-    me "That should be my pizza."
-
-    # Click to answer door
-
-    jump pizza1_start
-
-label order_sushi:
-    anon "Thank you for calling Hayashi Sushi. What can we do for you?"
-    $ phone = haySushi
-
-    me "Hello, can I get the Chef’s Deluxe Assorted Plate. I would also like seaweed salad on the side, please."
-    phone "Alright. Can I get your address?"
-    me "It’s 1111 2nd Street."
-    phone "Great. It’ll be there in twenty minutes. I hope that you have a delicious night."
-
-    hide screen phone_dial
-    $ phone = anon
-
-    "A knock on the door."
-
-    me "I hope that's my sushi."
-
-    # Click to answer door
-
-    jump sushi1_start
-
-#temporary
-label day2:
-    scene doorway
-
-    "Tuesday. Four days before the dinner party."
-    if date == False:
-        jump day2_nodate
-
-    if angDate == True:
-        jump angdate
-
-    if dateCindi == True:
-        jump cindidate
-
-label day2_nodate:
-    scene doorway
-
-    me "Ugh, I forgot to pick up groceries again and there’s nothing left in the fridge."
-    me "I guess it’s actually not such a bad thing a bunch of restaurants left me takeout menus, then."
-
-    show screen phone_dial
-
-    me "What should I get for dinner tonight?"
-
-#temporary
-label angdate:
-    scene doorway
-
-    me "Angela should be here soon. I better make get ready."
-
-    "A knock on the door."
-
-    me "Sounds like she's here."
-
-    show char angela neutral2
-
-    ang "Hey! How's it going? I'm excited to go [angdateAct]!"
-    me "Me too! Wanna come inside real quick? I wasn't quite ready."
-    ang "Okay."
-
-    $ date = False
-    $ angDate = False
-    $ angDead = True
-
-    jump day2
-
-#temporary
-label cindidate:
-    scene doorway
-
-    me "Cindi should be here soon. I better make get ready."
-
-    "A knock on the door."
-
-    me "Sounds like she's here."
-
-    show char cindi neutral2
-
-    cindi "Hey! How's it going? I'm excited to go [datecindiact]!"
-    me "Me too! Wanna come inside real quick? I wasn't quite ready."
-    cindi "Okay."
-
-    $ date = False
-    $ dateCindi = False
-    $ cindiDead = True
-
-    jump day2
