@@ -4,6 +4,10 @@
 define ang = Character("Angela", image="angela", window_right_padding=200)
 define cin = Character("Cindi")
 define mc = Character("boss")
+define jo = Character("jo")
+
+define im_mc = Character("ChefBoiUrD", kind=nvl)
+define im_jo = Character("JoGetter", kind=nvl)
 
 # Randos
 define anon = Character("???")
@@ -17,21 +21,13 @@ define locBBQ = Character("Butt Hutt")
 define locTaco = Character("Taco Bonita")
 
 # Game state declration
+# init python:
+#     from ChatLog import ChatLog
 
-transform btn_disabled:
-    alpha 0.6
+#     # boss_phone = ChatLog("BossPhone")
+#     # jo_phone = ChatLog("JoPhone")
 
-screen phone_dial():
-    modal True
-    zorder 100
-    frame:
-        xalign 0.5 ypos 100
-        grid 2 2:
-            textbutton "Pizza" action [Hide("phone_dial"), Jump("angela_1")]
-            textbutton "Tacos" at btn_disabled
-            textbutton "Sushi" at btn_disabled
-            textbutton "BBQ" at btn_disabled
-
+#     active_phone = None
 
 # The game starts here.
 

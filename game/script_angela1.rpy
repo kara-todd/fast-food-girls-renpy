@@ -123,3 +123,43 @@ label angela_2:
   "*I pull up my phone and find the online ordering form.*"
   "(Yes, this should work quite nicely.{w=.5} Hm.{w=.5} Better leave my number too.{w=.5} I expect they will call…{w=.75} and I'll leave a comment about the free meal.)"
   "(Now I just need to message Jo.)"
+
+  scene bg apartment night
+
+  window hide
+  window auto
+
+  nvl show
+
+  # $ boss_phone.delete_history()
+  # $ active_phone = boss_phone
+  # show screen chat_log(active_phone)
+
+  im_mc "Hi Jo! I have decided to order pizza for the team."
+  im_mc ":)"
+  im_jo "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place"
+  im_mc "No, I already got it covered."
+  im_mc "In fact I've already put in the order and they are being delivered as we speak."
+  im_jo "Uh-huh."
+  im_jo "And did you perhaps also want the team to know about the pizza?"
+  im_jo "Or is this more of a for the team \"in spirit\" kinda thing?"
+
+  # sms jo "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place"
+
+  # $ chat_msg(boss_phone, "ChefBoiUrD", "Hi Jo! I have decided to order pizza for the team.")
+  # $ chat_msg(boss_phone, "ChefBoiUrD", ":)")
+
+
+  # $ chat_msg(boss_phone, "JoGetter", "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place")
+
+  # $ chat_msg(boss_phone, "ChefBoiUrD", "No, I already got it covered.")
+
+  # $ chat_msg(boss_phone, "ChefBoiUrD", "In fact I've already put in the order and they are being delivered as we speak.")
+
+  # $ chat_msg(boss_phone, "JoGetter", " Uh-huh.")
+
+  # $ chat_msg(boss_phone, "JoGetter", " And did you perhaps also want the team to know about the pizza?")
+
+  # $ chat_msg(boss_phone, "JoGetter", "Or is this more of a for the team \"in spirit\" kinda thing?")
+
+  mc "that was nice"
