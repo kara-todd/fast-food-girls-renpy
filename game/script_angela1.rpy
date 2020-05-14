@@ -17,12 +17,12 @@ label angela_1:
   with dissolve
   pause 2.0
   "*Knock, Knock, Kock*"
-  mc " (Ah, sounds like my meal has arrived)"
+  mc "(Ah, sounds like my meal has arrived)"
 
   $ ang.name = "???"
   show bg frontdoor night
   pause 1.0
-  show angela
+  show ang
 
   ang "[locPizza]. Here’s your order."
   "She holds out the pizza box and looks away."
@@ -135,31 +135,253 @@ label angela_2:
   # $ active_phone = boss_phone
   # show screen chat_log(active_phone)
 
-  im_mc "Hi Jo! I have decided to order pizza for the team."
-  im_mc ":)"
-  im_jo "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place"
-  im_mc "No, I already got it covered."
-  im_mc "In fact I've already put in the order and they are being delivered as we speak."
+  im_mc "Hi Jo! I have decided to order pizza for the team.{fast}"
+  im_mc ":){fast}"
+  im_jo "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place{fast}"
+  im_mc "No, I already got it covered.{fast}"
+  im_mc "In fact I've already put in the order and they are being delivered as we speak.{fast}"
+  im_jo "Uh-huh.{fast}"
+  im_jo "And did you perhaps also want the team to know about the pizza?{fast}"
+  im_jo "Or is this more of a for the team \"in spirit\" kinda thing?{fast}"
+  im_mc "Certainly.{fast}"
+  im_mc "I would hate for all that good food to go to waste. You should just have everybody head over here tonight for an after party.{fast}"
+  im_jo "Everybody.{fast}"
+  im_jo "Tonight.{fast}"
+  im_mc "Well, in the next few hours I'd expect. I didn't get a clear delivery time.{fast}"
+  im_mc "They say 30 minutes or less, but I'm not sure that's to be trusted.{fast}"
+  im_mc "A bit of leeway is reasonable. Given the order and all.{fast}"
+  im_jo "What order {i}exactly{/i} is that.{fast}"
+  im_mc "Jo! Don't fret over the specifics. I wanted to take something off your plate. You'll have a lot going on getting the whole team here tonight.{fast}"
+
+  show screen phone_notification("Incomming call [locPizza]") with wipedown
+
+  im_mc "Oh. Speaking of… I've got a call to take.{fast}"
+  im_mc "I look forward to the party Jo!{fast}"
+
+  hide screen phone_notification
+  nvl hide
+
+  phone "Hello sir. This is John. I'm the manager down at Thic Pies."
+  mc "Hello John. Nice to hear from you."
+  phone "I'm calling about an online order we received from this number."
+  mc "Yes. Is there some kind of problem?"
+  phone "The order was for 150 pizzas for immediate delivery... Is that correct?"
+  mc "Yes, that is correct. I have a big party planned tonight."
+  phone "Sir. I mean no offense, but there is no way you need 150 pizzas. Perhaps I can help you figure out a better order size. What's your head count?"
+  mc "Are you not able to deliver the pizzas then? I can order elsewhere…"
+  phone "No. It's not that we can't deliver… I'm just concerned. I want to make sure this is what you really want."
+  mc "I definitely want 150 pizzas. Does that still come with the 30 minute guarantee?"
+  phone "Well-"
+  mc "Ha ha! No, that would be crazy. However, I do need them tonight. I have a big team in town for a few months and they'll be pulling a lot of late nights. Do you accept billing accounts and routine scheduling?"
+  phone "Oh, certainly sir! We'd love to have you come in and talk through some options."
+  mc "Great. I'll swing by then. Assuming tonight goes well of course…"
+  phone "I'm sure you'll be fully satisfied."
+
+  scene black
+  with dissolve
+  pause 2.0
+  "*Knock, Knock*"
+
+  mc "(It's a bit early for the pizzas. It must be some of the crew.)"
+
+  show bg frontdoor night
+  pause 1.0
+  show sam
+
+  sam "Hey Boss! It's Sam. Jo told us to come over and set up for a party tonight?"
+  mc "Yeah, there's a clearing and deck around back."
+  sam "You really throw a last minute shin-dig with no warning to Jo?"
+  mc "Nothing she can't handle. Jo's top class. I know she'll enjoy it when she's here."
+  sam "Lol. Classic move. Party like a boss. Well, refusing free food is against my code of ethics- So we'll get started."
+  mc "Put out the food tables first. I got this local pizza place catering and they should be here soon."
+  sam "Mmm. Mmm. Pizza."
+
+  hide sam with dissolve
+
+  "(He disappears around back. I hear the trucks pull around and the clang of tables and outdoor furniture being erected.)"
+
+  "(*knock. knock.*)"
+
+  "(I open the door. An energetic delivery girl and a nonplussed Angela are standing there. Angela is holding a stack of pizzas. She glances my way then purposely looks another direction.)"
+
+  show anon zorder 4 at center
+  show angela zorder 1 at left
+
+  anon "Thic Pies. We have an extra large order here."
+  anon "Uh… you did order 150 pizzas… right?"
+  mc "I most certainly did."
+  ang "..."
+  anon "Great! Well, we can start getting them from the cars-"
+  ang "Sure is a lot pizzas for one dude."
+  "(The delivery girls cuts an angry glance at Angela)"
+  anon "Haha. I mean… It is the biggest order I've seen."
+  mc "It would be. However, it's not all for me. I have a party out back."
+  anon "Oh. Well that makes sense-"
+  ang "You do not need this many pizzas dude."
+  anon "*whispers* oh my god. Angela! What is wrong with you. Don't harass the customer."
+  anon "haha. It does maybe seem like a bit much though?"
+  mc "Oh? I wanted to be sure I was prepared."
+  mc "And what would your recommendation be miss… Angela? Was it?"
+  ang "I don't know man. If you want hella pizzas that's your business I guess."
+  ang "The only thing I need to know is where to put them."
+  anon "Y-Yeah. You want these inside I guess? We normally just hand them off at the door, but I'm not sure that will quite work. Haha?"
+  mc "I'll show you. I have a few guys around back."
+  "(They follow me around to the back of the house. There are a few event tables put out along with the beginnings of string lights and a large pavilion tent.)"
+  mc "Just put them here under the pavilion there."
+  anon "I'll grab some more boxes Angela!"
+  "(She runs back around the house.)"
+  hide anon with dissolve
+  show angela at center with dissolve
+  ang "What's your deal man? Are you messing with me or something?"
+  mc "I'd say that's kind of presumptions isn't it?"
+  ang "Yeah. I don't know. You call me. Then we get this weird order."
+  mc "Well, firstly. I never called you Angela. I believe I have called Thic Pies and only twice at that. Getting you was… a happy coincidence?"
+  ang "… I guess"
+  "(she looks away again)"
+  ang "…"
+  ang "It's still weird man. Who orders that many pizzas?"
+  mc "Ok, I must confess there. I did feel a little guilty for giving you such a hard time the other day. I hated to think I might be responsible for your loss of work."
+  mc "I might have gone a bit overboard. (I shrug.) It can be a bit hard for me to gauge things sometimes. I should probably leave things to my manager."
+  "(she looks a little confused)"
+  ang "Manager? Like your boss or something?"
+  mc "Haha. No, in this case I would be the boss. I run a company and I have a manager and personal assistant who helps me coordinate things. She's very good."
+  ang "Oh. So you're loaded."
+  mc "(I can't help but grin) Maybe. That would depend on your definition."
+  ang "Yeah. I don't think that matters in this case dude."
+  anon "Angela! Are you getting more pizzas! Where are you?"
+  ang "I'm coming man! Chill! I have questions about the order!"
+  mc "Sounds like you've got work."
+  ang "Yeah."
+  mc "Well. If you've got some free time after maybe you should drop by the party tonight."
+  ang "Why would I crash your weird work thing?"
+  mc "Free pizza? No? How about free booze?"
+  mc "And hey. You delivered the pizzas in the first place. Really this party wouldn't be happening without you."
+  ang "Maybe. I'll think about it."
+  ang "I got stuff to do and all. So I don't know if I'll have time."
+  "(The other pizza girl comes back around the house arms full of pizza boxes.)"
+  anon "Angela!!!"
+  ang "Dude!! Lay off!"
+  mc "That's my fault, miss. I was talking to Angela about setting up a service account. After our talk, I finally see this really is far too many pizzas."
+  mc "How embarrassing. I enjoy the delivery though. I'll be ordering again I'm sure."
+  anon "Uh… really? Well, Ok. I do need her help though. We have so many boxes."
+  mc "Of course. We were just wrapping up."
+  mc "Could I get your direct line Angela?"
+  ang "My what?"
+  mc "So I can finalize details about the service account?"
+  ang "Uh. I don't really have-"
+  mc "You can just text it to me. My number is on the order. Paper is environmentally unfriendly."
+  "(She looks over at the now quite impatient delivery girl.)"
+  ang "Yeah. Sure."
+  "(She pulls out her phone.)"
+
+  nvl clear
+  nvl show
+
+  $ im_ang.name = "<Unkown>"
+  im_ang "What are you on about man?!?{fast}"
+
+  mc "Perfect. I got it. Thank you for your hard work ladies. I'll leave you to it."
+  mc"We'll chat later Angela."
+
+  nvl hide
+  scene black
+  with dissolve
+  pause 2.0
+
+  "*(bing)*"
+
+  nvl clear
+  nvl show
+  $ im_ang.name = "Angela"
+  im_ang "What are you on about man?!?{nw}{fast}"
+  im_ang "what the hell man?!{fast}"
+  im_ang "i don't know about some accounts or whatever{fast}"
+  im_ang "i.{fast}"
+  im_ang "deliver.{fast}"
+  im_ang "pizza.{fast}"
+  im_mc "I was covering for you!"
+  im_mc "I'm sure you can get it done for me. Just tell your manager."
+  im_ang "it does NOT work like that dude"
+  im_mc "You sure? Have you tried it before?"
+  im_ang "no"
+  im_ang "i don't have to"
+  im_mc "Well. If it bothers you, I can call in and get somebody else. I just wanted to give you the opportunity."
+  im_ang "what do you mean"
+  im_ang "opportunity?"
+  im_mc "Landing a big account would be a good look to other employers."
+  im_ang "nobody cares about a dumb take out job"
+  im_mc "It's not about the job. It's about framing."
+  im_mc "You aren't delivering pizza. You are signing clients onto stable accounts."
+  im_ang "no dude"
+  im_ang "im not"
+  im_mc "If you don't want to that's fine."
+  im_ang "its not"
+  # "(she types and then deletes things a few times)"
+  im_ang "why do you care"
+  im_mc "I don't really. It goes against my nature to look the other way though."
+  im_ang "that makes no sense"
+  im_mc "You clearly are frustrated with your work. I hate to see good talent wasted."
+  im_mc "I found my manager while she was at another job. She's the best hire I ever made."
+  im_mc "It's always stuck with me."
+  im_ang "so you help out some sob story"
+  im_mc "No I find talent. People who are motivated. Driven."
+  im_mc "People who aren't content to just let the daily grind wear them down."
+  im_mc "You could say I have good taste in people."
+  # "(she types and then deletes things a few times)"
+  im_ang "you're weird"
+  im_mc "Nothing ventured nothing gained."
+  im_mc "There's always risk in business."
+  im_mc "And you know I'm loaded."
+  im_mc "At least I'm rich and weird. :)"
+  im_mc "💸"
+  pause 5
+  im_ang "ill ask about the account"
+  im_mc "Don't ask. Get it done. That's how you get ahead."
+  im_ang "whatever"
+  im_ang "rich guy"
+
+  nvl hide
+  nvl clear
+  scene black
+  with dissolve
+  pause 2.0
+
+  "*(bing)*"
+
+  im_jo "Wow Jo! What a great party! I can't believe you did all that on zero notice!"
+  im_jo "For your jerk of a boss!"
+  im_mc "Is that a template letter? Should I sign it?"
+  im_jo "😒"
+  im_mc "You know you rocked it Jo. It was great."
+  im_jo "Yeah. Well. No more surprise parties… please."
+  im_jo "I don't know if my heart can take it."
+  im_jo "Sam said something about you doing this again? You got a local deal or something? Care to comment?"
+  im_mc "Yeah I didn't want to put more on your plate."
+  im_mc "I got it covered."
+  im_jo "Forgive my lack of faith. You got what covered."
+  im_jo "Regular parties strike me as wholly unnecessary here boss."
+  im_jo "Shouldn't we be focused on getting the new location open?"
+  im_mc "Team morale is an important part of meeting deadlines."
   im_jo "Uh-huh."
-  im_jo "And did you perhaps also want the team to know about the pizza?"
-  im_jo "Or is this more of a for the team \"in spirit\" kinda thing?"
-
-  # sms jo "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place"
-
-  # $ chat_msg(boss_phone, "ChefBoiUrD", "Hi Jo! I have decided to order pizza for the team.")
-  # $ chat_msg(boss_phone, "ChefBoiUrD", ":)")
-
-
-  # $ chat_msg(boss_phone, "JoGetter", "Ok… Thanks boss. How random and suspiciously considerate of you. Do you want me to find a place")
-
-  # $ chat_msg(boss_phone, "ChefBoiUrD", "No, I already got it covered.")
-
-  # $ chat_msg(boss_phone, "ChefBoiUrD", "In fact I've already put in the order and they are being delivered as we speak.")
-
-  # $ chat_msg(boss_phone, "JoGetter", " Uh-huh.")
-
-  # $ chat_msg(boss_phone, "JoGetter", " And did you perhaps also want the team to know about the pizza?")
-
-  # $ chat_msg(boss_phone, "JoGetter", "Or is this more of a for the team \"in spirit\" kinda thing?")
-
-  mc "that was nice"
+  im_jo "And how's team morale boss? You been on site lately?"
+  im_jo "I mean I certainly wouldn't know."
+  im_jo "Not like I'm there every day from sunup to sun down. Making decisions, checking budgets, running operations. Y'know all the little stuff."
+  im_jo "I'm sure you've got a real pulse on the team dynamic."
+  im_mc "I know I've been heads down on this project."
+  im_mc "But I'm picking up some of that slack starting now."
+  im_mc "I've had a few breakthroughs recently and now I'm headed in a solid direction."
+  im_jo "And I assume these explorative endeavours of yours will translate into actual profit somehow?"
+  im_mc "Don't they always? :D"
+  im_jo "Somehow…"
+  im_jo "We've gotten off topic here."
+  im_jo "Routine parties? No. Please. We don't need them."
+  im_mc "Spoil sport."
+  im_mc "I bet if we had a party every week it would only add about 2\% to the budget."
+  im_mc "C'mon. I got a great hookup."
+  im_jo "Ah yes. Who can resist the siren song of \"C'monnn\""
+  im_jo "And \"hookup\" sounds highly encouraging."
+  im_mc "I say... Yes. Routine parties."
+  im_mc "Parties all around."
+  im_jo "ಠ_ಠ"
+  im_mc "Glad to know you're on board with this."
+  im_mc "I'll text you when everything is finalized."

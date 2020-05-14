@@ -8,11 +8,13 @@ define jo = Character("jo")
 
 define im_mc = Character("ChefBoiUrD", kind=nvl)
 define im_jo = Character("JoGetter", kind=nvl)
+define im_ang = Character("Angela", kind=nvl)
 
 # Randos
 define anon = Character("???")
 define phone = Character("phone")
 define girl = anon
+define sam = Character("Sam")
 
 # Location Names
 define locPizza = Character("Phat Pies")

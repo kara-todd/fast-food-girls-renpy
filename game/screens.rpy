@@ -1297,19 +1297,33 @@ style notify_text:
 screen nvl(dialogue, items=None):
 
     window:
-        # style "nvl_window"
-        style "phone_chat"
+        style "nvl_window"
 
-        frame:
-            xsize 600
-            ysize 900
-            xalign 0.7
-            yalign 0.25
+        has vbox:
+            spacing gui.nvl_spacing
 
-            background "#000"
-            has vbox:
-                spacing gui.nvl_spacing
+        ## Displays dialogue in either a vpgrid or the vbox.
+        if gui.nvl_height:
+
+            vpgrid:
+                cols 1
+                yinitial 1.0
+
                 use nvl_dialogue(dialogue)
+
+        else:
+
+            use nvl_dialogue(dialogue)
+
+        ## Displays the menu, if given. The menu may be displayed incorrectly if
+        ## config.narrator_menu is set to True, as it is above.
+        for i in items:
+
+            textbutton i.caption:
+                action i.action
+                style "nvl_button"
+
+    add SideImage() xalign 0.0 yalign 1.0
 
 
 screen nvl_dialogue(dialogue):
@@ -1318,16 +1332,17 @@ screen nvl_dialogue(dialogue):
 
         window:
             id d.window_id
-            background "#00f"
 
             fixed:
-                yfit True
-                xalign 0.0
-                yalign 0.0
-                spacing 0
-                vbox:
-                    text d.who id d.who_id xalign 0.0 size (gui.text_size * 0.75) color "#fff"
-                    text d.what id d.what_id size gui.text_size color "#fff"
+                yfit gui.nvl_height is None
+
+                if d.who is not None:
+
+                    text d.who:
+                        id d.who_id
+
+                text d.what:
+                    id d.what_id
 
 
 ## This controls the maximum number of NVL-mode entries that can be displayed at
