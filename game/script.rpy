@@ -40,4 +40,3 @@ label start:
     show screen phone_dial
 
     mc "What should I have for dinner tonight?"
-

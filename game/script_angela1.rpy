@@ -22,14 +22,14 @@ label angela_1:
   $ ang.name = "???"
   show bg frontdoor night
   pause 1.0
-  show ang
+  show angela happy
 
-  ang "[locPizza]. Here’s your order."
+  ang angry "[locPizza]. Here’s your order."
   "She holds out the pizza box and looks away."
   mc "Hm...{w=.5} I called in this order over an hour ago.{w=.5} Don’t you have some kind of delivery guarantee?"
   ang "Look dude, talk is cheap and so is this pizza.{w=.5} You can call corporate and whine over your $10 if you want.{w=.25} I don’t care."
   ang "For me, the only question is are you going to take this pizza or am I?"
-  mc "(Quite a direct attitude. Hm.)" 
+  mc "(Quite a direct attitude. Hm.)"
   mc "(How best to handle this?)"
   mc "I guess you can just take the pizza,{w=.5} give me $10,{w=.5} and we’ll call it even."
   mc "(She suddenly jerks her head back to look at me. Anger and confusion written across her face.)"
