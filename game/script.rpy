@@ -2,7 +2,7 @@
 
 # Characters
 define ang = Character("Angela", image="angela", window_right_padding=200)
-define cin = Character("Cindi")
+define cin = Character("Cindi", image="cindi", window_right_padding=200)
 define mc = Character("boss")
 define jo = Character("jo")
 
