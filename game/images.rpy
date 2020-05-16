@@ -1,12 +1,22 @@
-image angela = "char angela doorway.png"
-image angela angry = "char angela doorway.png"
-image angela sad = "char angela doorway.png"
+image angela = "char-angela-doorway-v2.png"
+image angela angry = "char-angela-doorway-v2.png"
+image angela sad = "char-angela-doorway-v2.png"
+image angela happy = "char-angela-doorway-v2.png"
+image angela wtf = "char-angela-doorway-v2.png"
+
+image vanessa = "vanessa.png"
+image vanessa angry = "vanessa.png"
+image vanessa happy = "vanessa.png"
 
 image side angela = Image("char side angela neutral.png")
 image side angela sad = Image("side-angela-sadv2.png")
 image side angela angry = Image("side-angela-angry.png")
 image side angela wtf = Image("side-angela-wtfv2.png")
 image side angela happy = Image("side-angela-happy.png")
+
+image side vanessa happy = Image("side-vanessa-happy.png")
+image side vanessa angry = Image("side-vanessa-angry.png")
+
 
 # transform change_transform(old, new):
 #     contains:

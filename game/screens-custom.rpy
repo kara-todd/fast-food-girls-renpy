@@ -12,7 +12,7 @@ style phone_chat:
     yalign 0.5
     xsize 1920
     ysize 1080
-    background Image("Phone-rough-v2.png")
+    background Image("Phone-rough-v3.png")
 
 style phone_chat_name is nvl_label
 style phone_chat_msg is nvl_dialogue

@@ -5,6 +5,7 @@ define ang = Character("Angela", image="angela", window_right_padding=200)
 define cin = Character("Cindi", image="cindi", window_right_padding=200)
 define mc = Character("boss")
 define jo = Character("jo")
+define van = Character("Vanessa", image="vanessa", window_right_padding=200)
 
 define im_mc = Character("ChefBoiUrD", kind=nvl)
 define im_jo = Character("JoGetter", kind=nvl)
