@@ -8,6 +8,9 @@ image vanessa = "vanessa.png"
 image vanessa angry = "vanessa.png"
 image vanessa happy = "vanessa.png"
 
+image sam = "sam.png"
+image sam happy = "sam.png"
+
 image side angela = Image("char side angela neutral.png")
 image side angela sad = Image("side-angela-sadv2.png")
 image side angela angry = Image("side-angela-angry.png")
@@ -16,6 +19,8 @@ image side angela happy = Image("side-angela-happy.png")
 
 image side vanessa happy = Image("side-vanessa-happy.png")
 image side vanessa angry = Image("side-vanessa-angry.png")
+
+image side sam happy = Image("side-sam-rough.png")
 
 
 # transform change_transform(old, new):

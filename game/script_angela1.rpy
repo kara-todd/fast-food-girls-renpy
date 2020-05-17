@@ -189,13 +189,13 @@ label angela_2:
   pause 1.0
   show sam
 
-  sam "Hey Boss! It's Sam. Jo told us to come over and set up for a party tonight?"
+  sam @ happy "Hey Boss! It's Sam. Jo told us to come over and set up for a party tonight?"
   mc "Yeah, there's a clearing and deck around back."
-  sam "You really throw a last minute shin-dig with no warning to Jo?"
+  sam @ happy "You really throw a last minute shin-dig with no warning to Jo?"
   mc "Nothing she can't handle. Jo's top class. I know she'll enjoy it when she's here."
-  sam "Lol. Classic move. Party like a boss. Well, refusing free food is against my code of ethics- So we'll get started."
+  sam @ happy "Lol. Classic move. Party like a boss. Well, refusing free food is against my code of ethics- So we'll get started."
   mc "Put out the food tables first. I got this local pizza place catering and they should be here soon."
-  sam "Mmm. Mmm. Pizza."
+  sam @ happy "Mmm. Mmm. Pizza."
 
   hide sam with dissolve
 
