@@ -4,6 +4,30 @@ image angela sad = "char-angela-doorway-v2.png"
 image angela happy = "char-angela-doorway-v2.png"
 image angela wtf = "char-angela-doorway-v2.png"
 
+image angela upset = "char-angela-doorway-v2.png"
+
+image angela upset1 = "side-angela-upset-lips1.png"
+image angela upset2 = "side-angela-upset-lips2.png"
+image angela upset3 = "side-angela-upset-lips3.png"
+image angela upset4 = "side-angela-upset-lips4.png"
+
+image side angela upset:
+    choice (6.0):
+        "angela upset4"
+    choice:
+        "angela upset3"
+        pause 0.05
+        "angela upset2"
+        pause 0.05
+        "angela upset1"
+        pause 0.03
+        "angela upset2"
+        pause 0.03
+        "angela upset3"
+
+    pause 0.1
+    repeat
+
 image vanessa = "vanessa.png"
 image vanessa angry = "vanessa.png"
 image vanessa happy = "vanessa.png"

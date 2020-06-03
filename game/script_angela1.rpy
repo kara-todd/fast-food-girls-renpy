@@ -34,7 +34,7 @@ label angela_1:
   mc "(How best to handle this?)"
   mc "I guess you can just take the pizza,{w=.5} give me $10,{w=.5} and we’ll call it even."
   mc "(She suddenly jerks her head back to look at me. Anger and confusion written across her face.)"
-  ang @ wtf "What?!{w=.75} That’s crazy. Why would I give {b}you{/b}{w=.25} money?{w=.5} I’ll just leave."
+  ang @ upset "What?!{w=.75} That’s crazy. Why would I give {b}you{/b}{w=.25} money?{w=.5} I’ll just leave."
   "(She starts to move away)"
   mc "Well. I already paid when I ordered. So if you take the pizza that would be theft in my book."
   ang @ angry "Fine. {i}Whatever{/i} just take the pizza then and call back in for a refund."
