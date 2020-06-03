@@ -11,22 +11,49 @@ image angela upset2 = "side-angela-upset-lips2.png"
 image angela upset3 = "side-angela-upset-lips3.png"
 image angela upset4 = "side-angela-upset-lips4.png"
 
-image side angela upset:
-    choice (6.0):
-        "angela upset4"
-    choice:
-        "angela upset3"
-        pause 0.05
-        "angela upset2"
-        pause 0.05
-        "angela upset1"
-        pause 0.03
-        "angela upset2"
-        pause 0.03
-        "angela upset3"
-
-    pause 0.1
+image angela speaking:
+    0.5
+    "talking-angela4.png"
+    0.2
+    "talking-angela1.png"
+    0.5
+    # This will choose one of the following delays at random
+    # choice:
+    #     0.15
+    # choice:
+    #     0.05
+    # choice:
+    #     0.1
+    "talking-angela2.png"
+    0.2
+    "talking-angela3.png"
+    0.2
     repeat
+
+image side angela upset = Composite(
+    (374, 418),
+    (0, 0), "side-angela-upset.png",
+    (64, 254), WhileSpeaking("angela", "angela speaking", "talking-angela4.png"),
+)
+
+# image side angela upset:
+#     choice (6.0):
+#         "angela upset4"
+#     choice:
+#         "angela upset3"
+#         pause 0.05
+#         "angela upset2"
+#         pause 0.05
+#         "angela upset1"
+#         pause 0.03
+#         "angela upset2"
+#         pause 0.03
+#         "angela upset3"
+
+#     pause 0.1
+#     repeat
+
+
 
 image vanessa = "vanessa.png"
 image vanessa angry = "vanessa.png"

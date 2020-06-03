@@ -1,8 +1,35 @@
 ﻿# The script of the game goes in this file.
 
+# Credit to: https://pastebin.com/QnXknASm
+init python:
+    speaking = None
+ 
+    def while_speaking(name, speak_d, done_d, st, at):
+        if speaking == name:
+            return speak_d, .1
+        else:
+            return done_d, None
+
+    curried_while_speaking = renpy.curry(while_speaking)
+
+    def WhileSpeaking(name, speaking_d, done_d=Null()):
+        return DynamicDisplayable(curried_while_speaking(name, speaking_d, done_d))
+
+    def speaker_callback(name, event, **kwargs):
+        global speaking
+ 
+        if event == "show":
+            speaking = name
+        elif event == "slow_done":
+            speaking = None
+        elif event == "end":
+            speaking = None
+
+    speaker = renpy.curry(speaker_callback)
+
 # Characters
-define ang = Character("Angela", image="angela", window_right_padding=200)
-define cin = Character("Cindi", image="cindi", window_right_padding=200)
+define ang = Character("Angela", image="angela", window_right_padding=200, callback=speaker("angela"))
+define cin = Character("Cindi", image="cindi", window_right_padding=200, callback=speaker("cindi"))
 define mc = Character("boss")
 define jo = Character("jo")
 
@@ -13,8 +40,8 @@ define im_ang = Character("Angela", kind=nvl)
 # Randos
 define anon = Character("???")
 define phone = Character("phone")
-define van = Character("Vanessa", image="vanessa", window_right_padding=200)
-define sam = Character("Sam", image="sam", window_right_padding=200)
+define van = Character("Vanessa", image="vanessa", window_right_padding=200, callback=speaker("vanessa"))
+define sam = Character("Sam", image="sam", window_right_padding=200, callback=speaker("sam"))
 
 # Location Names
 define locPizza = Character("Phat Pies")
